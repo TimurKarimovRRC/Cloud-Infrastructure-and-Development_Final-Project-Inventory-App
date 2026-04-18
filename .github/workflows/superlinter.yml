@@ -6,7 +6,6 @@ on:
       - opened
       - reopened
 
-
 permissions:
   contents: read
   packages: read
