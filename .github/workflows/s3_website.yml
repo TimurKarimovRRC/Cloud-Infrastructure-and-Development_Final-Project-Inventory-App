@@ -25,4 +25,4 @@ jobs:
           aws-region: us-east-1
 
       - name: Upload index.html to S3
-        run: aws s3 cp index.html s3://https://inventoryapp-tkarimov.s3.us-east-1.amazonaws.com/index.html --content-type "text/html"
+        run: aws s3 cp index.html s3://inventoryapp-tkarimov/index.html --content-type "text/html"
