@@ -26,4 +26,4 @@ jobs:
 
       - name: Upload index.html to S3
         run: |
-          aws s3 cp index.html s3://inventoryapp-tkarimov/index.html --content-type "text/html"fix
+          aws s3 cp index.html s3://inventoryapp-tkarimov/index.html --content-type "text/html"
