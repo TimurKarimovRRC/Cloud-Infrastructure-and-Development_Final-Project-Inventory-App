@@ -1,0 +1,33 @@
+name: Super-Linter
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+
+permissions:
+  contents: read
+  packages: read
+  statuses: write
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run Super-Linter
+        uses: super-linter/super-linter@v7
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BRANCH: main
+          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_HTML_PRETTIER: true
+          VALIDATE_PYTHON_BLACK: true
+          VALIDATE_YAML_PRETTIER: true
