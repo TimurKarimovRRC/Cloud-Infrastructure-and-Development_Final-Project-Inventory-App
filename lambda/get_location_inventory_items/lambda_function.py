@@ -10,6 +10,7 @@ GSI_NAME = "item_location_id-item_id-index"
 
 class DecimalEncoder(json.JSONEncoder):
     """Handle Decimal types returned by DynamoDB."""
+
     def default(self, obj):
         if isinstance(obj, Decimal):
             if obj % 1 == 0:
@@ -31,9 +32,9 @@ def lambda_handler(event, context):
 
         response = table.query(
             IndexName=GSI_NAME,
-            KeyConditionExpression=boto3.dynamodb.conditions.Key(
-                "item_location_id"
-            ).eq(int(location_id)),
+            KeyConditionExpression=boto3.dynamodb.conditions.Key("item_location_id").eq(
+                int(location_id)
+            ),
         )
         items = response.get("Items", [])
 

@@ -8,6 +8,7 @@ table = dynamodb.Table("Inventory")
 
 class DecimalEncoder(json.JSONEncoder):
     """Handle Decimal types returned by DynamoDB."""
+
     def default(self, obj):
         if isinstance(obj, Decimal):
             if obj % 1 == 0:

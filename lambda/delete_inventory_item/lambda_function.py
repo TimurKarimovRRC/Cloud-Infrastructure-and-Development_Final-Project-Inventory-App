@@ -40,8 +40,9 @@ def lambda_handler(event, context):
         return {
             "statusCode": 200,
             "headers": {"Content-Type": "application/json"},
-            "body": json.dumps({"message": "Item deleted successfully",
-                                "item_id": item_id}),
+            "body": json.dumps(
+                {"message": "Item deleted successfully", "item_id": item_id}
+            ),
         }
     except Exception as e:
         return {
